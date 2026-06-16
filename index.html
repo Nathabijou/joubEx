@@ -30,7 +30,8 @@
 
 <body>
     <!-- Topbar Start -->
-    <div class="container-fluid bg-dark topbar-green">
+     <div class="fixed-header">
+    <div class="container-fluid topbar-green" style="background-color:#198754;">
         <div class="row py px-lg-5">
             <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center text-white">
@@ -41,19 +42,19 @@
             </div>
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-white px-2" href="">
+                    <a class="text-white px-2" href="https://www.facebook.com/share/1CxmJmTb41/?mibextid=wwXIfr">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a class="text-white px-2" href="">
+                    <!-- <a class="text-white px-2" href="">
                         <i class="fab fa-twitter"></i>
                     </a>
                     <a class="text-white px-2" href="">
                         <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
+                    </a> -->
+                    <a class="text-white px-2" href="https://www.instagram.com/joubex1?igsh=MXU3bWdrYjJiZHRhZA%3D%3D&utm_source=qr">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a class="text-white pl-2" href="">
+                    <a class="text-white pl-2" href="https://youtube.com/@joubexpressshipping?si=jOfGeTtGsoMCFtdF">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
@@ -80,9 +81,10 @@
                     <a href="blog.html" class="nav-item nav-link">Blog</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="donate.html">Faire un Don</a>
+                <!-- <a href="donate.html">Faire un Don</a> -->
              </div>
         </nav>
+    </div>
     </div>
     <!-- Navbar End -->
 
@@ -111,26 +113,71 @@
   <div class="row">
     <div class="col-12">
       <div class="text-center">
-        <!-- Image horloge -->
-        <img src="img/horloge.png" alt="Horloge" 
-             class="mb-3" 
-             style="width:300px; height:auto; margin:0 auto;">
-        
-        <!-- Horaire -->
-        <h5 class="text-success font-weight-bold mb-3" style="font-size:28px;">
-          Horaires d’Ouverture
-        </h5>
-        <p class="mb-1">🕒 Lundi – Vendredi : 8h00 – 17h00</p>
-        <p class="mb-1">🕒 Samedi : 8h00 – 15h00</p>
-        <p class="mb-0">🕒 Dimanche : Fermé</p>
+        <h1 class="text-primary mb-4">JOUB EXPRESS SHIPPING</h1>
+        <!-- JOUBEX CLOCK -->
+<div class="joubex-clock">
+    <div class="clock-face">
 
-        <!-- Actuellement -->
-        <h5 class="mt-4 font-weight-bold">Actuellement :</h5>
-        <p id="currentStatus" style="font-size:22px; font-weight:bold;"></p>
-      </div>
-    </div>
-  </div>
+        <!-- Chif Women -->
+        
+
+        <!-- Logo -->
+        <div class="brand">
+    <img src="img/joubex.png" alt="JOUBEX Logo">
 </div>
+        
+
+        <!-- Zegwi yo -->
+        <div class="hand hour" id="hour-hand"></div>
+        <div class="hand minute" id="minute-hand"></div>
+        <div class="hand second" id="second-hand"></div>
+
+        <!-- Sant mont lan -->
+        <div class="center-dot"></div>
+        <div class="num num1">I</div>
+<div class="num num2">II</div>
+<div class="num num3">III</div>
+<div class="num num4">IV</div>
+<div class="num num5">V</div>
+<div class="num num6">VI</div>
+<div class="num num7">VII</div>
+<div class="num num8">VIII</div>
+<div class="num num9">IX</div>
+<div class="num num10">X</div>
+<div class="num num11">XI</div>
+<div class="num num12">XII</div>
+
+    </div>
+</div>
+
+<script>
+function updateClock() {
+
+    const now = new Date();
+
+    const seconds = now.getSeconds();
+    const minutes = now.getMinutes();
+    const hours = now.getHours();
+
+    const secondDeg = seconds * 6;
+    const minuteDeg = (minutes * 6) + (seconds * 0.1);
+    const hourDeg = ((hours % 12) * 30) + (minutes * 0.5);
+
+    document.getElementById('second-hand').style.transform =
+        `translateX(-50%) rotate(${secondDeg}deg)`;
+
+    document.getElementById('minute-hand').style.transform =
+        `translateX(-50%) rotate(${minuteDeg}deg)`;
+
+    document.getElementById('hour-hand').style.transform =
+        `translateX(-50%) rotate(${hourDeg}deg)`;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+
+
 
 <script>
   function checkCurrentStatus() {
@@ -170,9 +217,152 @@
   checkCurrentStatus();
   setInterval(checkCurrentStatus, 60000); // rafraîchir chaque minute
 </script>
+        
+        <!-- Horaire -->
+        <h5 class="text-success font-weight-bold mb-3" style="font-size:28px;">
+          Horaires d’Ouverture
+        </h5>
+        <p class="mb-1">🕒 Lundi – Vendredi : 8h00 – 17h00</p>
+        <p class="mb-1">🕒 Samedi : 8h00 – 15h00</p>
+        <p class="mb-0">🕒 Dimanche : Fermé</p>
+
+        <!-- Actuellement -->
+        <h5 class="mt-4 font-weight-bold">Actuellement :</h5>
+
+<div id="currentInfo"
+     style="
+        font-size:22px;
+        font-weight:bold;
+        background:#fff;
+        padding:15px;
+        border-radius:10px;
+        max-width:500px;
+        margin:0 auto;
+        box-shadow:0 3px 10px rgba(0,0,0,.1);
+     ">
+</div>
+<script>
+function updateBusinessStatus() {
+
+    const now = new Date();
+
+    const days = [
+        "Dimanche",
+        "Lundi",
+        "Mardi",
+        "Mercredi",
+        "Jeudi",
+        "Vendredi",
+        "Samedi"
+    ];
+
+    const months = [
+        "Janvier","Février","Mars","Avril","Mai","Juin",
+        "Juillet","Août","Septembre","Octobre","Novembre","Décembre"
+    ];
+
+    const dayName = days[now.getDay()];
+    const day = now.getDate();
+    const month = months[now.getMonth()];
+    const year = now.getFullYear();
+
+    const hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2,'0');
+    const seconds = String(now.getSeconds()).padStart(2,'0');
+
+    let ouvert = false;
+
+    if(now.getDay() >= 1 && now.getDay() <= 5){
+        ouvert = hours >= 8 && hours < 17;
+    }
+    else if(now.getDay() === 6){
+        ouvert = hours >= 8 && hours < 15;
+    }
+
+    const statusText = ouvert
+        ? '<span style="color:green;">🟢 OUVERT</span>'
+        : '<span style="color:red;">🔴 FERMÉ</span>';
+
+    document.getElementById("currentInfo").innerHTML = `
+        📅 ${dayName}, ${day} ${month} ${year}<br>
+        🕒 ${hours}:${minutes}:${seconds}<br>
+        ${statusText}
+    `;
+}
+
+updateBusinessStatus();
+setInterval(updateBusinessStatus,1000);
+</script>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
+
+
+
+
+<!-- Business Card Start -->
+<div class="container-fluid bg-secondary my-5">
+    <div class="container py-5">
+
+        <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+            <h6 class="text-primary text-uppercase font-weight-bold">Carte de Visite</h6>
+            <h1 class="mb-3">Carte de Visite Joub Express</h1>
+            <p>
+                Consultez et téléchargez notre carte de visite afin de conserver nos coordonnées à portée de main.
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+
+            <!-- Recto -->
+            <div class="col-lg-5 col-md-6 mb-4">
+                <div class="card border-0 shadow-lg h-100">
+                    <img src="img/carte1.png"
+                         class="img-fluid"
+                         alt="Carte de Visite Joub Express - Recto">
+
+                    <div class="card-body text-center">
+                        <h5>Recto</h5>
+
+                        <a href="img/carte1.png"
+                           download="JoubExpress-Carte-Recto.png"
+                           class="btn btn-primary mt-2">
+                            <i class="fa fa-download mr-2"></i>
+                            Télécharger
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Verso -->
+            <div class="col-lg-5 col-md-6 mb-4">
+                <div class="card border-0 shadow-lg h-100">
+                    <img src="img/carte2 (2).png"
+                         class="img-fluid"
+                         alt="Carte de Visite Joub Express - Verso">
+
+                    <div class="card-body text-center">
+                        <h5>Verso</h5>
+
+                        <a href="img/carte2 (2).png"
+                           download="JoubExpress-Carte-Verso.png"
+                           class="btn btn-primary mt-2">
+                            <i class="fa fa-download mr-2"></i>
+                            Télécharger
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Business Card End -->
 
 
 
@@ -180,11 +370,6 @@
 <!-- À Propos Start -->
 <div class="container-fluid py-5">
   <div class="container">
-
-
-
-
-
 
     <!-- Section À Propos en bas -->
     <div class="row align-items-center">
